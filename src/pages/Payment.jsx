@@ -226,7 +226,7 @@ const Payment = () => {
                         <span>₹{displayPrice}</span>
                         <span className="text-gray-400 font-light">|</span>
                         <span>GPay</span>
-                        <span className="text-gray-400 font-light">|</span>
+                        <span className="text-gray-400 font-light"></span>
                         {/* <span className="text-[#ff4700]">Save ₹50</span> */}
                       </div>
                       <p className="text-[14px] text-[#34A853] mt-0.5">
