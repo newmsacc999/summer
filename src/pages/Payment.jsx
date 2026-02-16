@@ -339,20 +339,21 @@ const Payment = () => {
       </div>
 
       {/* Footer */}
-      {/* Mobile Footer (Exact match to image) */}
-      <div className="w-full bg-white shadow-[0_-1px_5px_rgba(0,0,0,0.1)] p-4 px-6 flex md:hidden z-50 justify-between items-center border-t border-gray-100">
-        <div className="flex items-center">
-          <span className="text-[24px] font-medium text-[#212121]">
-            ₹{sellingPrice}
-          </span>
-        </div>
-        <button
-          className="bg-[#FFC107] text-black font-bold py-3 px-8 rounded-lg shadow-sm uppercase text-[15px] cursor-pointer border-none"
-          onClick={handlePayment}
-        >
-          PROCEED TO PAY
-        </button>
-      </div>
+      {/* Mobile Footer */}
+<div className="fixed bottom-0 left-0 w-full bg-white shadow-[0_-1px_5px_rgba(0,0,0,0.1)] p-4 px-6 flex md:hidden z-50 justify-between items-center border-t border-gray-100">
+  <div className="flex items-center">
+    <span className="text-[24px] font-medium text-[#212121]">
+      ₹{sellingPrice}
+    </span>
+  </div>
+
+  <button
+    className="bg-[#FFC107] text-black font-bold py-3 px-8 rounded-lg shadow-sm uppercase text-[15px] cursor-pointer border-none"
+    onClick={handlePayment}
+  >
+    PROCEED TO PAY
+  </button>
+</div>
 
       {/* Desktop Footer (Original) */}
       <div className="hidden md:flex fixed bottom-0 w-full bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] p-3 z-50 justify-between items-center mx-auto left-0 right-0">
