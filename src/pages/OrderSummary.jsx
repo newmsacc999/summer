@@ -52,7 +52,8 @@ const OrderSummary = () => {
   ).toFixed(0);
 
   return (
-    <div className="bg-[#f1f3f6] min-h-screen">
+    <div className="bg-[#f1f3f6] min-h-screen pb-24">
+
       {/* Header */}
       <div className="container mx-auto min-w-full p-3 pb-0 bg-white sticky top-0 z-50">
         <div className="flex items-center pb-2">
@@ -364,7 +365,7 @@ const OrderSummary = () => {
       </div>
 
       {/* Footer - Mobile/Small Screen (Static) */}
-      <div className="w-full bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] px-4 py-3 flex sm:hidden justify-between items-center mx-auto">
+<div className="fixed bottom-0 left-0 w-full bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] px-4 py-3 flex sm:hidden justify-between items-center z-50">
         <div className="flex flex-col">
           <span className="line-through text-[#878787] text-[14px]">
             ₹{product.mrp}
