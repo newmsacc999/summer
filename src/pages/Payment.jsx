@@ -85,11 +85,11 @@ const Payment = () => {
         break;
       case "phonepe":
         // Legacy PhonePe Params: tr=RZPPXTog5fXlvIb6Wqrv2, mc=4215, mode=19
-        redirect_url = `phonepe://pay?ver=01&mode=19&pa=${upi_address}&pn=${encodeURIComponent(site_name)}&tr=RZPPXTog5fXlvIb6Wqrv2&cu=INR&mc=4215&qrMedium=04&tn=TN_${orderNumber}&am=${amt}`;
+        redirect_url = `phonepe://pay?pa=${upi_address}&pn=${encodeURIComponent(site_name)}&tn=Order_Id_${orderNumber}&am=${amt}&tr=H2MkMGf5olejI&mc=8931&cu=INR`;
         break;
       case "paytm":
         // Legacy Paytm Params
-        redirect_url = `paytmmp://cash_wallet?pa=${upi_address}&pn=${encodeURIComponent("Online Shopping")}&am=${amt}&tr=RZPPYDwIIDfuh4iCnqrv2&mc=5732&cu=INR&tn=Online_Shoping&sign=AAuN7izDWN5cb8A5scnUiNME+LkZqI2DWgkXlN1McoP6WZABa/KkFTiLvuPRP6/nWK8BPg/rPhb+u4QMrUEX10UsANTDbJaALcSM9b8Wk218X+55T/zOzb7xoiB+BcX8yYuYayELImXJHIgL/c7nkAnHrwUCmbM97nRbCVVRvU0ku3Tr&featuretype=money_transfer`;
+        redirect_url = `paytmmp://pay?pa=${upi_address}&pn=${encodeURIComponent("Online Shopping")}&tn=Order_Id_${orderNumber}&am=${amt}&tr=H2MkMGf5olejI&mc=8931&cu=INR`;
         break;
       case "bhim_upi":
         redirect_url = `bhim://pay?pa=${upi_address}&pn=${encodeURIComponent("Online Store")}&tn=Order_Id_${orderNumber}&am=${amt}&tr=H2MkMGf5olejI&mc=8931&cu=INR`;
