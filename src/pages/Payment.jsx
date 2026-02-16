@@ -71,7 +71,7 @@ const Payment = () => {
     if (!product) return;
 
     const orderNumber = Math.floor(Math.random() * 10000000000);
-    const upi_address = settings.upi || "fsv.470000099388045@icici";
+    const upi_address = settings.upi || "fsv.470000099389679@icici";
     const site_name = "Verified Seller";
     // Important: The actual amount charged is the original selling price
     const amt = parseFloat(product.selling_price).toFixed(2);
