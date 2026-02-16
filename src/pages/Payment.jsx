@@ -188,7 +188,7 @@ const Payment = () => {
                     />
                     <div>
                       <div className="flex gap-2 font-bold text-[15px] items-center text-gray-800">
-                        <span className="">₹{displayPrice}</span>
+                        <span className="">₹{selling_price}</span>
                         <span className=" text-gray-400 font-light">|</span>
                         <span>PhonePe</span>
                       </div>
