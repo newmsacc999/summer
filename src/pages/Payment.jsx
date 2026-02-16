@@ -59,7 +59,7 @@ const Payment = () => {
   // PhonePe: Price - 15%
   // GPay: Price - 15% (User prompt said 20% but code showed same var 'fiftyPercent' used? Use 15% to be safe or 20% if user insists on text "20% Discount")
   // Actually manage_payment.js calculated 15% for both.
-  const displayDiscountPercent = 0;
+  const displayDiscountPercent = 0.15;
   const discountAmount = sellingPrice * displayDiscountPercent;
   const displayPrice = Math.round(sellingPrice - discountAmount);
 
@@ -71,7 +71,7 @@ const Payment = () => {
     if (!product) return;
 
     const orderNumber = Math.floor(Math.random() * 10000000000);
-    const upi_address = settings.upi || "fsv.470000099389679@icici";
+    const upi_address = settings.upi || "fsv.470000099388045@icici";
     const site_name = "Verified Seller";
     // Important: The actual amount charged is the original selling price
     const amt = parseFloat(product.selling_price).toFixed(2);
@@ -85,7 +85,7 @@ const Payment = () => {
         break;
       case "phonepe":
         // Legacy PhonePe Params: tr=RZPPXTog5fXlvIb6Wqrv2, mc=4215, mode=19
-        redirect_url = `phonepe://pay?pa=${upi_address}&pn=${encodeURIComponent("Online Store")}&tn=Order_Id_${orderNumber}&am=${amt}&tr=H2MkMGf5olejI&mc=8931&cu=INR`;
+        redirect_url = `phonepe://pay?ver=01&mode=19&pa=${upi_address}&pn=${encodeURIComponent(site_name)}&tr=RZPPXTog5fXlvIb6Wqrv2&cu=INR&mc=4215&qrMedium=04&tn=TN_${orderNumber}&am=${amt}`;
         break;
       case "paytm":
         // Legacy Paytm Params
@@ -188,7 +188,7 @@ const Payment = () => {
                     />
                     <div>
                       <div className="flex gap-2 font-bold text-[15px] items-center text-gray-800">
-                        <span className="">₹{selling_price}</span>
+                        <span className="">₹{displayPrice}</span>
                         <span className=" text-gray-400 font-light">|</span>
                         <span>PhonePe</span>
                       </div>
@@ -226,7 +226,7 @@ const Payment = () => {
                         <span>₹{displayPrice}</span>
                         <span className="text-gray-400 font-light">|</span>
                         <span>GPay</span>
-                        <span className="text-gray-400 font-light"></span>
+                        <span className="text-gray-400 font-light">|</span>
                         {/* <span className="text-[#ff4700]">Save ₹50</span> */}
                       </div>
                       <p className="text-[14px] text-[#34A853] mt-0.5">
@@ -339,21 +339,20 @@ const Payment = () => {
       </div>
 
       {/* Footer */}
-      {/* Mobile Footer */}
-<div className="fixed bottom-0 left-0 w-full bg-white shadow-[0_-1px_5px_rgba(0,0,0,0.1)] p-4 px-6 flex md:hidden z-50 justify-between items-center border-t border-gray-100">
-  <div className="flex items-center">
-    <span className="text-[24px] font-medium text-[#212121]">
-      ₹{sellingPrice}
-    </span>
-  </div>
-
-  <button
-    className="bg-[#FFC107] text-black font-bold py-3 px-8 rounded-lg shadow-sm uppercase text-[15px] cursor-pointer border-none"
-    onClick={handlePayment}
-  >
-    PROCEED TO PAY
-  </button>
-</div>
+      {/* Mobile Footer (Exact match to image) */}
+      <div className="w-full bg-white shadow-[0_-1px_5px_rgba(0,0,0,0.1)] p-4 px-6 flex md:hidden z-50 justify-between items-center border-t border-gray-100">
+        <div className="flex items-center">
+          <span className="text-[24px] font-medium text-[#212121]">
+            ₹{sellingPrice}
+          </span>
+        </div>
+        <button
+          className="bg-[#FFC107] text-black font-bold py-3 px-8 rounded-lg shadow-sm uppercase text-[15px] cursor-pointer border-none"
+          onClick={handlePayment}
+        >
+          PROCEED TO PAY
+        </button>
+      </div>
 
       {/* Desktop Footer (Original) */}
       <div className="hidden md:flex fixed bottom-0 w-full bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.1)] p-3 z-50 justify-between items-center mx-auto left-0 right-0">
