@@ -59,7 +59,7 @@ const Payment = () => {
   // PhonePe: Price - 15%
   // GPay: Price - 15% (User prompt said 20% but code showed same var 'fiftyPercent' used? Use 15% to be safe or 20% if user insists on text "20% Discount")
   // Actually manage_payment.js calculated 15% for both.
-  const displayDiscountPercent = 0.15;
+  const displayDiscountPercent = 0;
   const discountAmount = sellingPrice * displayDiscountPercent;
   const displayPrice = Math.round(sellingPrice - discountAmount);
 
